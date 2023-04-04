@@ -1,0 +1,16 @@
+
+  {
+    "name": "cardfight",
+    "version": "1.0.0",
+    "scripts": {
+      "build": "npm run setup:server",
+      "setup:app": "npm run setup:server && npm run setup:client",
+      "setup:client": "cd cardFight.client && npm i",
+      "setup:server": "cd cardFight && npm i",
+      "start": "node cardFight/index.js"
+    },
+    "engines": {
+      "node": "^14.17.0"
+    }
+  }
+  
