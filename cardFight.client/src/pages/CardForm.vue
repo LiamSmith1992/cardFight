@@ -18,11 +18,9 @@
     <label for="magic">Magic:</label>
     <input type="number" v-model="editable.magic" id="magic" name="magic"><br>
 
-    <label for="ability">Ability:</label>
-    <input type="text" v-model="editable.ability" name="ability"><br>
 
     <label for="mySelect">Ability</label>
-    <select id="mySelect" name="mySelect">
+    <select v-model="editable.ability" id="mySelect" name="mySelect">
       <option value="none">None</option>
       <option value="peirce">Peirce</option>
       <option value="heal">Heal</option>
