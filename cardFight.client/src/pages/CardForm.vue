@@ -6,6 +6,21 @@
     <label for="type">Type:</label>
     <input type="text" v-model="editable.type" id="type" name="type"><br>
 
+    <label for="mySelect">Type:</label>
+    <select v-model="editable.type" id="mySelect" name="mySelect">
+      <option value="none">None</option>
+      <option value="peirce">Peirce</option>
+      <option value="heal">Heal</option>
+      <option value="boost">Boost</option>
+      <option value="combust">Combust</option>
+      <option value="debuff">Debuff</option>
+      <option value="charge">Charge</option>
+      <option value="sneak">Sneak</option>
+      <option value="vanish">Vanish</option>
+      <option value="find">Find</option>
+      <option value="summon">Summon</option>
+    </select><br>
+
     <label for="health">Health:</label>
     <input type="number" v-model="editable.health" id="health" name="health"><br>
 
@@ -19,7 +34,7 @@
     <input type="number" v-model="editable.magic" id="magic" name="magic"><br>
 
 
-    <label for="mySelect">Ability</label>
+    <label for="mySelect">Ability:</label>
     <select v-model="editable.ability" id="mySelect" name="mySelect">
       <option value="none">None</option>
       <option value="peirce">Peirce</option>
