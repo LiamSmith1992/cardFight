@@ -3,7 +3,7 @@ import { Schema } from "mongoose";
 export const CardSchema = new Schema({
 
   name: { type: String, required: true, minLength: 1, maxLength: 20 },
-  type: { type: String, required: true, enum: ['knight', 'mage', 'ninja', 'undead', 'beast'] },
+  type: { type: String, required: true, enum: ['human', 'ghost', 'knight', 'mage', 'ninja', 'undead', 'beast'] },
   health: { type: Number, required: true, minimum: 1, maximum: 70 },
   strength: { type: Number, required: true, maximum: 20 },
   defense: { type: Number, required: true, maximum: 20 },
