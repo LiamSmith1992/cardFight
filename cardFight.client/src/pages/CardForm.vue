@@ -3,22 +3,15 @@
     <label for="name">Name:</label>
     <input type="text" v-model="editable.name" id="name" name="name"><br>
 
-    <label for="type">Type:</label>
-    <input type="text" v-model="editable.type" id="type" name="type"><br>
-
     <label for="mySelect">Type:</label>
     <select v-model="editable.type" id="mySelect" name="mySelect">
-      <option value="none">None</option>
-      <option value="peirce">Peirce</option>
-      <option value="heal">Heal</option>
-      <option value="boost">Boost</option>
-      <option value="combust">Combust</option>
-      <option value="debuff">Debuff</option>
-      <option value="charge">Charge</option>
-      <option value="sneak">Sneak</option>
-      <option value="vanish">Vanish</option>
-      <option value="find">Find</option>
-      <option value="summon">Summon</option>
+      <option value="human">Human</option>
+      <option value="ghost">Ghost</option>
+      <option value="knight">Knight</option>
+      <option value="mage">Mage</option>
+      <option value="ninja">Ninja</option>
+      <option value="undead">Undead</option>
+      <option value="beast">Beast</option>
     </select><br>
 
     <label for="health">Health:</label>
