@@ -21,6 +21,11 @@ const routes = [
     name: 'Account',
     component: loadPage('AccountPage'),
     beforeEnter: authGuard
+  },
+  {
+    path: '/cardForm',
+    name: 'CardForm',
+    component: loadPage('CardForm'),
   }
 ]
 
