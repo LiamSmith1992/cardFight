@@ -21,8 +21,24 @@
     <label for="ability">Ability:</label>
     <input type="text" v-model="editable.ability" name="ability"><br>
 
+    <label for="mySelect">Ability</label>
+    <select id="mySelect" name="mySelect">
+      <option value="none">None</option>
+      <option value="peirce">Peirce</option>
+      <option value="heal">Heal</option>
+      <option value="boost">Boost</option>
+      <option value="combust">Combust</option>
+      <option value="debuff">Debuff</option>
+      <option value="charge">Charge</option>
+      <option value="sneak">Sneak</option>
+      <option value="vanish">Vanish</option>
+      <option value="find">Find</option>
+      <option value="summon">Summon</option>
+    </select><br>
+
     <label for="" class="form-label">Picture</label>
     <input type="text" v-model="editable.imgUrl" class="form-control" id="">
+
 
     <input type="submit" value="Submit">
   </form>
