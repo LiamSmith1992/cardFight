@@ -6,11 +6,11 @@ export class CardsController extends BaseController {
   constructor() {
     super('api/cards')
     this.router
-      .post('', this.createCards)
+      .post('', this.createCard)
   }
 
 
-  async createCards(req, res, next) {
+  async createCard(req, res, next) {
     try {
       const card = await cardsService.createCard(req.body)
       return res.send(card)

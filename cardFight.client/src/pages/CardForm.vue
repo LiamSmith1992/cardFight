@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="createCard()">
+  <form @submit.prevent="createCard">
     <label for="name">Name:</label>
     <input type="text" v-model="editable.name" id="name" name="name"><br>
 
@@ -61,30 +61,14 @@ export default {
 
 
     const editable = ref({})
-    // const form = document.querySelector('form');
-
-    // form.addEventListener('submit', (event) => {
-    //   event.preventDefault();
-
-    //   const name = document.querySelector('#name').value;
-    //   const type = document.querySelector('#type').value;
-    //   const health = document.querySelector('#health').value;
-    //   const strength = document.querySelector('#strength').value;
-    //   const defense = document.querySelector('#defense').value;
-    //   const ability = document.querySelector('#ability').value;
-
-    //   // You can then use these values however you like
-    // });
-
-
 
 
 
 
     return {
       editable,
-
       async createCard() {
+        debugger
         try {
           await cardsService.createCard(editable.value)
           logger.log(editable.value)
@@ -94,6 +78,9 @@ export default {
           logger.error(error.message)
         }
       }
+
+
+
     }
   }
 };
