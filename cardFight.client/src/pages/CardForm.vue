@@ -43,7 +43,7 @@
     </select><br>
 
     <label for="" class="form-label">Picture</label>
-    <input type="text" v-model="editable.imgUrl" class="form-control" id="">
+    <input type="text" v-model="editable.picture" class="form-control" id="">
 
 
     <input type="submit" value="Submit">

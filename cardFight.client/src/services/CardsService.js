@@ -1,4 +1,4 @@
-import { api } from "axios"
+import { api } from "./AxiosService"
 import { AppState } from "../AppState"
 import { logger } from "../utils/Logger"
 

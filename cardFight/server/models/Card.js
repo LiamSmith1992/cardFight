@@ -26,8 +26,3 @@ CardSchema.virtual('creator', {
   ref: 'Account'
 })
 
-CardSchema.virtual('deckId', {
-  localField: '_id',
-  foreignField: 'deckId',
-  ref: 'deck'
-})
