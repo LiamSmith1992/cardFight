@@ -10,6 +10,11 @@ class CardsService {
     AppState.cards.push(res.data)
   }
 
+  async getCards() {
+    const res = await api.get('api/cards')
+    logger.log(res.data)
+    AppState.cards = res.data
+  }
 
 
 }
