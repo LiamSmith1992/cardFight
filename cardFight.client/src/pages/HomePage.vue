@@ -31,8 +31,26 @@
 </template>
 
 <script>
+import { onMounted } from "vue";
+import { cardsService } from "../services/CardsService";
+import { logger } from "../utils/Logger";
+
 export default {
+
   setup() {
+    onMounted(() => {
+      getCards()
+    })
+
+    async function getCards() {
+      try {
+        await cardsService.getCards()
+      } catch (error) {
+        logger.error(error.message)
+      }
+    }
+
+
     return {}
   }
 }
