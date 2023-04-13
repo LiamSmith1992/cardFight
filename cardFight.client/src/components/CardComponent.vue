@@ -1,10 +1,14 @@
 <template>
-  <div class="component">
-    <section class="row">
-      <div v-for="c in cards" class="col-3 card rounded">
-
-      </div>
-    </section>
+  <div v-for="c in cards" class="col-3 card rounded">
+    <div class="d-flex justify-content-between">
+      <h5 class="">{{ c.name }} </h5>
+      <h5 class="text-danger text-end  ">{{ c.health }}</h5>
+    </div>
+    <img :src="c.picture" alt="">
+    <p>Strength: {{ c.strength }}</p>
+    <p>Defense: {{ c.defense }}</p>
+    <p>Magic: {{ c.magic }}</p>
+    <p>{{ c.type }}: <span>{{ c.ability }}</span></p>
 
   </div>
 </template>
@@ -24,7 +28,9 @@ export default {
 
 
 
-    return {}
+    return {
+      cards: computed(() => AppState.cards)
+    }
   }
 };
 </script>
