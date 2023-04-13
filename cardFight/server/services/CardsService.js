@@ -5,6 +5,11 @@ class CardsService {
     const card = await dbContext.Cards.create(body)
     return card
   }
+  async getCards(query) {
+    const cards = await dbContext.Cards.find()
+    return cards
+
+  }
 
 }
 
