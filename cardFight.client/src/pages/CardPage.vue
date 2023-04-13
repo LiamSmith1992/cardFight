@@ -1,5 +1,10 @@
 <template>
-  <div class="component">
+  <div class="container-fluid">
+    <section class="row">
+      <div class="">
+
+      </div>
+    </section>
 
 
   </div>
