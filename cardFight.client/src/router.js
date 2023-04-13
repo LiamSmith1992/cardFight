@@ -26,6 +26,11 @@ const routes = [
     path: '/cardForm',
     name: 'CardForm',
     component: loadPage('CardForm'),
+  },
+  {
+    path: '/cardPage',
+    name: 'CardPage',
+    component: loadPage('CardPage')
   }
 ]
 
