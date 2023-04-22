@@ -7,6 +7,7 @@ export class CardsController extends BaseController {
     super('api/cards')
     this.router
       .post('', this.createDeck)
+      .get('', this.getDecks)
 
   }
   async createDeck(req, res, next) {
@@ -16,6 +17,16 @@ export class CardsController extends BaseController {
     } catch (error) {
       next(error)
     }
+  }
+
+  async getDecks(req, res, next) {
+    try {
+      const decks = await deckService.getDecks()
+      return res.send(decks)
+    } catch (error) {
+      next(error)
+    }
+
   }
 
 
