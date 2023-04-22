@@ -8,8 +8,12 @@ export class CardsController extends BaseController {
     this.router
       .post('', this.createDeck)
       .get('', this.getDecks)
+      .delete('/:deckId', this.deleteDeck)
+      .put('/:deckId', this.editDeck)
+
 
   }
+
   async createDeck(req, res, next) {
     try {
       const deck = await deckService.createDeck(req.body)
@@ -29,7 +33,22 @@ export class CardsController extends BaseController {
 
   }
 
-
+  async deleteDeck(req, res, next) {
+    try {
+      const message = await deckService.deleteDeck(req.params.deckId)
+      return res.send(message)
+    } catch (error) {
+      next(error)
+    }
+  }
+  async editDeck(req, res, next) {
+    try {
+      const updated = await deckService.editDeck(req.params.deckId, req.body)
+      return res.send(updated)
+    } catch (error) {
+      next(error)
+    }
+  }
 
 
 }
