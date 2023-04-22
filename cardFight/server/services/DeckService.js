@@ -6,6 +6,10 @@ class DeckService {
     const deck = await dbContext.Deck.create(body)
     return deck
   }
+  async getDecks() {
+    const decks = await dbContext.Deck.find()
+    return decks
+  }
 
 }
 
