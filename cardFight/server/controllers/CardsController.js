@@ -9,6 +9,7 @@ export class CardsController extends BaseController {
       .post('', this.createCard)
       .get('', this.getCards)
       .delete('/:cardId', this.deleteCard)
+      .put('/:cardId', this.editCard)
   }
 
 
@@ -39,6 +40,14 @@ export class CardsController extends BaseController {
     }
   }
 
+  async editCard(req, res, next) {
+    try {
+      const card = await cardsService.editCard(req.params.cardId, req.body)
+      return res.send(card)
+    } catch (error) {
+      next(error)
+    }
+  }
 
 
 
