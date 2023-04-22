@@ -1,3 +1,4 @@
+import { BadRequest } from "@bcwdev/auth0provider/lib/Errors.js"
 import { dbContext } from "../db/DbContext.js"
 class CardsService {
 
@@ -10,6 +11,15 @@ class CardsService {
     return cards
 
   }
+  async deleteCard(cardId) {
+    const card = await dbContext.Cards.findById(cardId)
+    if (!card) throw new BadRequest('no card at id:' + cardId)
+    await card.delete()
+    return 'Card has been deleted.'
+  }
+
+
+
 
 }
 
