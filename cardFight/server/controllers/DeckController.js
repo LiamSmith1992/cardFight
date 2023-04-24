@@ -1,7 +1,7 @@
 import { deckService } from "../services/DeckService"
 import BaseController from "../utils/BaseController"
 
-export class CardsController extends BaseController {
+export class DeckController extends BaseController {
 
   constructor() {
     super('api/cards')

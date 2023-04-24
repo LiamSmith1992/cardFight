@@ -1,4 +1,4 @@
-import { BadRequest } from "@bcwdev/auth0provider/lib/Errors.js"
+import { BadRequest } from "../utils/Errors"
 import { dbContext } from "../db/DbContext.js"
 class CardsService {
 
@@ -21,17 +21,20 @@ class CardsService {
 
   async editCard(cardId, cardData) {
     const original = await dbContext.Cards.findById(cardId)
-    original.name = cardData.name !== undefined ? cardData.name : original?.name
-    original.type = cardData.type !== undefined ? cardData.type : original?.type
-    original.health = cardData.health !== undefined ? cardData.health : original?.health
-    original.strength: cardData.strength !== undefined ? cardData.strength : original?.strength
-    original.defense = cardData.defense !== undefined ? cardData.defense : original?.defense
-    original.magic = cardData.magic !== undefined ? cardData.magic : original.magic
-    original.ability = cardData.ability !== undefined ? cardData.ability : original?.ability
-    original.picture = cardData.picture !== undefined ? cardData.picture : original?.picture
+    if (!original) throw new BadRequest('no card at id:' + cardId)
 
-    await original?.save()
+    original.name = cardData.name !== undefined ? cardData.name : original.name
+    original.type = cardData.type !== undefined ? cardData.type : original.type
+    original.health = cardData.health !== undefined ? cardData.health : original.health
+    original.strength = cardData.strength !== undefined ? cardData.strength : original.strength
+    original.defense = cardData.defense !== undefined ? cardData.defense : original.defense
+    original.magic = cardData.magic !== undefined ? cardData.magic : original.magic
+    original.ability = cardData.ability !== undefined ? cardData.ability : original.ability
+    original.picture = cardData.picture !== undefined ? cardData.picture : original.picture
+
+    await original.save()
     return original
+
   }
 
 

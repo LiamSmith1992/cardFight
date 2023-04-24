@@ -1,4 +1,5 @@
-import { BadRequest } from "@bcwdev/auth0provider/lib/Errors"
+
+import { BadRequest } from "../utils/Errors"
 import { dbContext } from "../db/DbContext"
 
 
@@ -20,13 +21,21 @@ class DeckService {
   }
   async editDeck(deckId, deckData) {
     const original = await dbContext.Deck.findById(deckId)
-    original.name = deckData.name !== undefined ? deckData.name : original?.name
-    original.cards = deckData.cards !== undefined ? deckData.cards : original?.cards
-    original.points = deckData.points !== undefined ? deckData.points : original?.points
-    original.picture = deckData.picture !== undefined ? deckData.picture : original?.picture
+    if (!original) throw new BadRequest('no card at id:' + deckId)
+
+    original.name = deckData.name !== undefined ? deckData.name : original.name
+    original.cards = deckData.cards !== undefined ? deckData.cards : original.cards
+    original.points = deckData.points !== undefined ? deckData.points : original.points
+    original.picture = deckData.picture !== undefined ? deckData.picture : original.picture
+    await original.save()
+    return original
   }
 
+
+
 }
+
+
 
 
 export const deckService = new DeckService()
