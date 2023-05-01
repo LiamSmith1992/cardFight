@@ -7,13 +7,7 @@ export const DeckSchema = new Schema({
   points: { type: Number, maximum: 200 },
   picture: { type: String, required: true, maxLength: 400 },
 
-},
-  {
-    timestamps: true, toJSON: {
-      virtuals: true
-    }
-  }
-)
+}, { timestamps: true, toJSON: { virtuals: true } })
 
 DeckSchema.virtual('creator', {
   localField: 'creatorId',
