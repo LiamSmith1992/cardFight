@@ -2,7 +2,7 @@
   <div v-for="c in cards" class="col-3 card rounded">
     <div class="d-flex justify-content-between">
       <h5 class="">{{ c.name }} </h5>
-      <h5 class="text-danger text-end  ">{{ c.health }}</h5>
+      <h5 class="text-danger text-end  "><span class="text-dark">HP:</span> {{ c.health }}</h5>
     </div>
     <img :src="c.picture" alt="">
     <p>Strength: {{ c.strength }}</p>
