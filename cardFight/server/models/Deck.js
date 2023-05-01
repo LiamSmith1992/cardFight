@@ -6,6 +6,7 @@ export const DeckSchema = new Schema({
   cards: { type: Array, },
   points: { type: Number, required: true, maximum: 201 },
   picture: { type: String, required: true, maxLength: 400 },
+  description: { type: String }
 
 }, { timestamps: true, toJSON: { virtuals: true } })
 

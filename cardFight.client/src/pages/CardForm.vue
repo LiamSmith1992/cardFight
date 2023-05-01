@@ -56,8 +56,10 @@ import { AppState } from '../AppState';
 import { computed, reactive, onMounted, ref } from 'vue';
 import { logger } from "../utils/Logger";
 import { cardsService } from "../services/CardsService"
+import { useRoute } from "vue-router";
 export default {
   setup() {
+    const route = useRoute()
 
 
     const editable = ref({})
@@ -70,6 +72,7 @@ export default {
       async createCard() {
         debugger
         try {
+          editable.value.deckId = route.params.deckId
           await cardsService.createCard(editable.value)
           logger.log(editable.value)
           editable.value = {}

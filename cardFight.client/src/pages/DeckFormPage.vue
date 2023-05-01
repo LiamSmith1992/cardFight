@@ -7,6 +7,8 @@
 
       <label for="" class="form-label">Picture</label>
       <input type="text" v-model="editable.picture" class="form-control" id="">
+      <label for="" class="form-label">Description</label>
+      <input type="text" v-model="editable.description" class="form-control" id="">
 
 
       <input type="submit" value="Submit">

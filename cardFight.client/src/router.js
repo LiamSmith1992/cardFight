@@ -23,7 +23,7 @@ const routes = [
     beforeEnter: authGuard
   },
   {
-    path: '/cardForm',
+    path: '/cardForm/:deckId',
     name: 'CardForm',
     component: loadPage('CardForm'),
   },
