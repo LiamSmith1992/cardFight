@@ -13,6 +13,11 @@ class DeckService {
     const decks = await dbContext.Deck.find()
     return decks
   }
+
+  async getDeckById(deckId) {
+    const deck = await dbContext.Deck.findById(deckId)
+  }
+
   async deleteDeck(deckId) {
     const deck = await dbContext.Deck.findById(deckId)
     if (!deck) throw new BadRequest('no deck at id:' + deckId)

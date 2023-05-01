@@ -8,6 +8,7 @@ export class DeckController extends BaseController {
     this.router
       .post('', this.createDeck)
       .get('', this.getDecks)
+      .get('/:deckId', this.getDeckById)
       .delete('/:deckId', this.deleteDeck)
       .put('/:deckId', this.editDeck)
 
@@ -30,7 +31,15 @@ export class DeckController extends BaseController {
     } catch (error) {
       next(error)
     }
+  }
 
+  async getDeckById(req, res, next) {
+    try {
+      const deck = await deckService.getDeckById(req.params.deckId)
+      return res.send(deck)
+    } catch (error) {
+      next(error)
+    }
   }
 
   async deleteDeck(req, res, next) {
