@@ -31,6 +31,11 @@ const routes = [
     path: '/cardPage',
     name: 'CardPage',
     component: loadPage('CardPage')
+  },
+  {
+    path: '/deckFormPage',
+    name: 'DeckFormPage',
+    component: loadPage('DeckFormPage')
   }
 ]
 
