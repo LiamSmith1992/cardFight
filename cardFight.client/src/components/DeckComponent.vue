@@ -1,6 +1,6 @@
 <template>
-  <div v-for="d in decks">
-    <div class="">
+  <div v-for="d in decks" class="d-flex">
+    <div class="col-3">
 
       <h3 class="text-center">{{ d.name }}</h3>
       <div class="card rounded ">

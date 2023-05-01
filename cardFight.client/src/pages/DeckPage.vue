@@ -1,7 +1,14 @@
 <template>
-  <div class="component">
+  <div class="container">
+    <section class="d-flex">
 
 
+      <DeckComponent>
+
+      </DeckComponent>
+
+
+    </section>
   </div>
 </template>
 
@@ -11,28 +18,25 @@ import { AppState } from '../AppState';
 import { computed, reactive, onMounted } from 'vue';
 import { deckService } from "../services/DeckService";
 import { logger } from "../utils/Logger";
+import DeckComponent from "../components/DeckComponent.vue";
 export default {
   setup() {
     onMounted(() => {
-      getDecks()
-    })
+      getDecks();
+    });
     async function getDecks() {
       try {
-        await deckService.getDecks()
-
-      } catch (error) {
-        logger.error(error.message)
+        await deckService.getDecks();
+      }
+      catch (error) {
+        logger.error(error.message);
       }
     }
-
-
-
     return {
       decks: computed(() => AppState.decks)
-
-
-    }
-  }
+    };
+  },
+  components: { DeckComponent }
 };
 </script>
 
