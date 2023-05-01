@@ -19,7 +19,9 @@
         </router-link>
       </div>
       <div class="col-2 d-flex ">
-        <h3 class="btn btn-primary ">Decks</h3>
+        <router-link :to="{ name: 'DeckPage' }">
+          <h3 class="btn btn-primary ">Decks</h3>
+        </router-link>
       </div>
       <div class="col-2 d-flex ">
         <h3 class="btn btn-primary ">Rules</h3>

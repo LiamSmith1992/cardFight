@@ -29,9 +29,10 @@ export default {
     return {
       editable,
       async createDeck() {
+        debugger
         try {
-          editable.points = 200
-          editable.cards = []
+          editable.value.points = 200
+
           await deckService.createDeck(editable.value)
           logger.log(editable.value)
           editable.value = {}

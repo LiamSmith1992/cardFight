@@ -9,9 +9,29 @@
 <script>
 import { AppState } from '../AppState';
 import { computed, reactive, onMounted } from 'vue';
+import { deckService } from "../services/DeckService";
+import { logger } from "../utils/Logger";
 export default {
   setup() {
-    return {}
+    onMounted(() => {
+      getDecks()
+    })
+    async function getDecks() {
+      try {
+        await deckService.getDecks()
+
+      } catch (error) {
+        logger.error(error.message)
+      }
+    }
+
+
+
+    return {
+      decks: computed(() => AppState.decks)
+
+
+    }
   }
 };
 </script>
