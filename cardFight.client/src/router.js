@@ -43,7 +43,7 @@ const routes = [
     component: loadPage('DeckPage')
   },
   {
-    path: '/deckDetailsPage',
+    path: '/deckDetailsPage/:deckId',
     name: 'DeckDetailsPage',
     component: loadPage('DeckDetailsPage')
   }

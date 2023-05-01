@@ -16,6 +16,10 @@ class DeckService {
     AppState.decks = res.data
   }
 
+  async getDeckById(deckId) {
+    const res = await api.get('/api/decks/' + deckId)
+    AppState.activeDeck = res.data
+  }
 
 }
 
