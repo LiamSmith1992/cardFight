@@ -23,7 +23,9 @@ import { logger } from "../utils/Logger";
 import { cardsService } from "../services/CardsService";
 import CardComponent from "../components/CardComponent.vue";
 export default {
+
   setup() {
+
     onMounted(() => {
       getCards();
     });
