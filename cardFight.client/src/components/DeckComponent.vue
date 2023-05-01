@@ -1,14 +1,16 @@
 <template>
   <div class="d-flex">
-    <div class="col-3">
+    <router-link :to="{ name: 'DeckDetailsPage', params: { deckId: decks.id } }">
+      <div class="col-3">
 
-      <h3 class="text-center">{{ decks.name }}</h3>
-      <div class="card rounded ">
-        <img class="" :src="decks.picture" alt="">
+        <h3 class="text-center">{{ decks.name }}</h3>
+        <div class="card rounded ">
+          <img class="" :src="decks.picture" alt="">
+        </div>
+
+
       </div>
-
-
-    </div>
+    </router-link>
   </div>
 </template>
 
