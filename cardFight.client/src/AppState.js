@@ -8,5 +8,7 @@ export const AppState = reactive({
 
   cards: [],
 
+  decks: [],
+
 
 })

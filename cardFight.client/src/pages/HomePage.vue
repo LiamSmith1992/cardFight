@@ -9,7 +9,9 @@
         </router-link>
       </div>
       <div class="col-2 d-flex ">
-        <h3 class="btn btn-primary ">Build Deck</h3>
+        <router-link :to="{ name: 'DeckFormPage' }">
+          <h3 class="btn btn-primary ">Build Deck</h3>
+        </router-link>
       </div>
       <div class="col-2 d-flex ">
         <router-link :to="{ name: 'CardPage' }">

@@ -4,7 +4,7 @@ import BaseController from "../utils/BaseController"
 export class DeckController extends BaseController {
 
   constructor() {
-    super('api/cards')
+    super('api/decks')
     this.router
       .post('', this.createDeck)
       .get('', this.getDecks)
