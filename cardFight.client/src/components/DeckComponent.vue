@@ -1,10 +1,10 @@
 <template>
-  <div v-for="d in decks" class="d-flex">
+  <div class="d-flex">
     <div class="col-3">
 
-      <h3 class="text-center">{{ d.name }}</h3>
+      <h3 class="text-center">{{ decks.name }}</h3>
       <div class="card rounded ">
-        <img class="" :src="d.picture" alt="">
+        <img class="" :src="decks.picture" alt="">
       </div>
 
 
@@ -17,12 +17,15 @@
 import { AppState } from '../AppState';
 import { computed, reactive, onMounted } from 'vue';
 export default {
-  setup() {
+  props: {
+    decks: { type: Array, required: true }
+  },
+  setup(props) {
 
 
 
     return {
-      decks: computed(() => AppState.decks)
+
 
 
     }

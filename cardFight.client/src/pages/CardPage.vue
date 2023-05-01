@@ -1,9 +1,12 @@
 <template>
   <div class="container-fluid">
     <section class="row m-1" v-if="cards">
-      <CardComponent>
+      <div v-for="c in cards">
 
-      </CardComponent>
+        <CardComponent :cards="c" />
+      </div>
+
+
 
 
     </section>

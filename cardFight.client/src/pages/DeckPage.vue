@@ -1,13 +1,15 @@
 <template>
   <div class="container">
-    <section class="d-flex">
+    <section class="d-flex" v-if="decks">
+      <div v-for="d in decks">
 
 
-      <DeckComponent>
-
-      </DeckComponent>
+        <DeckComponent :decks="d" />
 
 
+
+
+      </div>
     </section>
   </div>
 </template>
