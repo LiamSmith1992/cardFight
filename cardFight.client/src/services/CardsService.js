@@ -19,6 +19,8 @@ class CardsService {
   async deleteCard(cardId) {
     const res = await api.delete('api/cards/' + cardId)
     logger.log(res.data)
+    const cards = AppState.cards.filter(i => i.id != cardId)
+    AppState.cards = cards
   }
 
 

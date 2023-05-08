@@ -20,7 +20,7 @@
       <div class="d-flex col-3" v-for="c in cards" v-if="cards">
         <CardComponent :cards="c" />
         <div>
-          <p class="btn btn-danger mdi mdi-delete mt-2" title="Delete" @click="deleteCard(cards.id)"></p>
+          <p class="btn btn-danger mdi mdi-delete mt-2" title="Delete" @click="deleteCard(c.id)"></p>
           <p class="btn btn-info mdi mdi-pencil mt-2" title="Edit"></p>
         </div>
       </div>
@@ -41,6 +41,7 @@ import { deckService } from "../services/DeckService";
 import { logger } from "../utils/Logger";
 import CardComponent from "../components/CardComponent.vue";
 import { cardsService } from "../services/CardsService";
+import Pop from "../utils/Pop";
 export default {
   setup() {
     const route = useRoute();
@@ -75,7 +76,10 @@ export default {
       cards: computed(() => AppState.cards.filter(i => i.deckId == route.params.deckId)),
 
       async deleteCard(cardId) {
-        await cardsService.deleteCard(cardId)
+
+        if (await Pop.confirm('are you sure')) {
+          await cardsService.deleteCard(cardId)
+        }
       }
 
 
