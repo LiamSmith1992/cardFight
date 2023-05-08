@@ -21,6 +21,17 @@ class DeckService {
     AppState.activeDeck = res.data
   }
 
+  async editDeck(deck) {
+    const res = await api.put('api/decks/' + deck._id, deck)
+    logger.log(res.data)
+
+  }
+
+
+
+
+
+
 }
 
 

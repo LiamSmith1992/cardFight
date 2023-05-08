@@ -1,5 +1,5 @@
 <template>
-  <div class=" card rounded p-2">
+  <div class=" card rounded p-2 m-2">
     <div class="d-flex justify-content-between">
       <h5 class="">{{ cards.name }} </h5>
       <h5 class="text-danger text-end  "><span class="text-dark">HP:</span> {{ cards.health }}</h5>

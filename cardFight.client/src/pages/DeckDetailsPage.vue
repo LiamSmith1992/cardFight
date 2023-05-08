@@ -19,6 +19,10 @@
     <section class="row">
       <div class="d-flex col-3" v-for="c in cards" v-if="cards">
         <CardComponent :cards="c" />
+        <div>
+          <p class="btn btn-danger mdi mdi-delete mt-2" title="Delete" @click="deleteCard(cards.id)"></p>
+          <p class="btn btn-info mdi mdi-pencil mt-2" title="Edit"></p>
+        </div>
       </div>
     </section>
 
@@ -68,7 +72,11 @@ export default {
 
     return {
       deck: computed(() => AppState.activeDeck),
-      cards: computed(() => AppState.cards.filter(i => i.deckId == route.params.deckId))
+      cards: computed(() => AppState.cards.filter(i => i.deckId == route.params.deckId)),
+
+      async deleteCard(cardId) {
+        await cardsService.deleteCard(cardId)
+      }
 
 
     };

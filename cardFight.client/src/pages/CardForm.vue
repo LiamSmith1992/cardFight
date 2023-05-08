@@ -57,34 +57,55 @@ import { computed, reactive, onMounted, ref } from 'vue';
 import { logger } from "../utils/Logger";
 import { cardsService } from "../services/CardsService"
 import { useRoute } from "vue-router";
+import { deckService } from "../services/DeckService";
+import Pop from "../utils/Pop";
 export default {
   setup() {
+    onMounted(() => {
+      getDeckById()
+    })
+
     const route = useRoute()
-
-
     const editable = ref({})
 
+    async function getDeckById() {
+      try {
+        debugger
+        await deckService.getDeckById(route.params.deckId);
+      }
+      catch (error) {
+        logger.error(error);
+      }
+    }
 
 
 
     return {
       editable,
+      deck: computed(() => AppState.activeDeck),
+
+
       async createCard() {
         try {
-          editable.value.deckId = route.params.deckId
-          await cardsService.createCard(editable.value)
-
-
+          debugger
+          const thisDeck = AppState.activeDeck
+          let total = editable.value.health + editable.value.strength + editable.value.defense + editable.value.magic
+          thisDeck.points = thisDeck.points - total
+          if (thisDeck.points > 0) {
+            editable.value.deckId = route.params.deckId
+            await cardsService.createCard(editable.value)
+            await deckService.editDeck(thisDeck)
+            editable.value = {}
+          } else Pop.error('Not Enough Points')
+          logger.error(error.message)
           logger.log(editable.value)
-
-
-          editable.value = {}
-
 
         } catch (error) {
           logger.error(error.message)
         }
       }
+
+
 
 
 
