@@ -56,7 +56,7 @@ import { AppState } from '../AppState';
 import { computed, reactive, onMounted, ref } from 'vue';
 import { logger } from "../utils/Logger";
 import { cardsService } from "../services/CardsService"
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { deckService } from "../services/DeckService";
 import Pop from "../utils/Pop";
 export default {
@@ -67,6 +67,7 @@ export default {
 
     const route = useRoute()
     const editable = ref({})
+    const router = useRouter()
 
     async function getDeckById() {
       try {
@@ -96,6 +97,7 @@ export default {
             await cardsService.createCard(editable.value)
             await deckService.editDeck(thisDeck)
             editable.value = {}
+            router.push({ name: 'DeckDetailsPage', params: { deckId: route.params.deckId } })
           } else Pop.error('Not Enough Points')
           logger.error(error.message)
           logger.log(editable.value)
