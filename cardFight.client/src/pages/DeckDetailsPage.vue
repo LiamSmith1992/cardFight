@@ -20,7 +20,7 @@
       <div class="d-flex col-3" v-for="c in cards" v-if="cards">
         <CardComponent :cards="c" />
         <div>
-          <p class="btn btn-danger mdi mdi-delete mt-2" title="Delete" @click="deleteCard(c.id)"></p>
+          <p class="btn btn-danger mdi mdi-delete mt-2" title="Delete" @click="deleteCard(c)"></p>
           <p class="btn btn-info mdi mdi-pencil mt-2" title="Edit"></p>
         </div>
       </div>
@@ -75,10 +75,14 @@ export default {
       deck: computed(() => AppState.activeDeck),
       cards: computed(() => AppState.cards.filter(i => i.deckId == route.params.deckId)),
 
-      async deleteCard(cardId) {
+      async deleteCard(card) {
 
         if (await Pop.confirm('are you sure')) {
-          await cardsService.deleteCard(cardId)
+          await cardsService.deleteCard(card.id)
+          const thisDeck = AppState.activeDeck
+          let total = card.health + card.strength + card.defense + card.magic
+          thisDeck.points = thisDeck.points + total
+          await deckService.editDeck(thisDeck)
         }
       }
 
