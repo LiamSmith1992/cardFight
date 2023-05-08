@@ -5,7 +5,7 @@
 
         <h3 class="text-center">{{ decks.name }}</h3>
         <div class="card rounded ">
-          <img class="" :src="decks.picture" alt="">
+          <img class="img-fluid" :src="decks.picture" alt="">
         </div>
 
 

@@ -17,8 +17,8 @@
     </section>
 
     <section class="row">
-      <div class="col-12" v-for="d in deck" v-if="deck.cards > 0">
-        <CardComponent :cards="d.cards" />
+      <div class="col-12" v-for="c in cards" v-if="cards"> 0">
+        <CardComponent :cards="c" />
       </div>
     </section>
 
@@ -36,12 +36,17 @@ import { computed, reactive, onMounted } from 'vue';
 import { deckService } from "../services/DeckService";
 import { logger } from "../utils/Logger";
 import CardComponent from "../components/CardComponent.vue";
+import { cardsService } from "../services/CardsService";
 export default {
   setup() {
     const route = useRoute();
+
     onMounted(() => {
       getDeckById();
+      getDeckCards();
     });
+
+
     async function getDeckById() {
       try {
         await deckService.getDeckById(route.params.deckId);
@@ -50,8 +55,23 @@ export default {
         logger.error(error);
       }
     }
+
+    async function getDeckCards() {
+      try {
+        debugger
+        await cardsService.getCards()
+      } catch (error) {
+        logger.error(error)
+      }
+    }
+
+
+
     return {
-      deck: computed(() => AppState.activeDeck)
+      deck: computed(() => AppState.activeDeck),
+      cards: computed(() => AppState.cards.filter(i => i.deckId == route.params.deckId))
+
+
     };
   },
   components: { CardComponent }
