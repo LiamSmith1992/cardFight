@@ -8,6 +8,7 @@ class DeckService {
     const res = await api.post('/api/decks', body)
     logger.log('New Deck', res.data)
     AppState.decks.push(res.data)
+    return res.data
   }
 
   async getDecks() {

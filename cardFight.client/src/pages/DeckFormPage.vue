@@ -22,9 +22,10 @@ import { AppState } from '../AppState';
 import { computed, reactive, onMounted, ref } from 'vue';
 import { deckService } from "../services/DeckService";
 import { logger } from "../utils/Logger";
+import { useRouter } from "vue-router";
 export default {
   setup() {
-
+    const router = useRouter()
     const editable = ref({})
 
 
@@ -35,9 +36,10 @@ export default {
         try {
           editable.value.points = 200
 
-          await deckService.createDeck(editable.value)
+          const deck = await deckService.createDeck(editable.value)
           logger.log(editable.value)
           editable.value = {}
+          router.push({ name: 'DeckDetailsPage', params: { deckId: deck.id } })
 
         } catch (error) {
           logger.error(error.message)
