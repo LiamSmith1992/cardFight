@@ -27,7 +27,11 @@ class DeckService {
 
   }
 
-
+  async deleteDeck(deckId) {
+    const res = await api.delete('api/decks/' + deckId)
+    const decks = AppState.decks.filter(i => i.id != deckId)
+    AppState.decks = decks
+  }
 
 
 

@@ -12,7 +12,11 @@ export const AppState = reactive({
 
   decks: [],
 
-  activeDeck: null
+  activeDeck: null,
+
+  userDeck: null,
+
+  opposingDeck: null,
 
 
 })

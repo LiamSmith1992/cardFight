@@ -4,7 +4,7 @@
 
       <div class="d-flex" v-if="decks">
         <div v-for="d in decks">
-
+          <div class="btn btn-danger mdi mdi-delete mt-1" title="Delete Deck" @click="deleteDeck(d.id)"></div>
           <DeckComponent :decks="d" />
 
         </div>
@@ -35,7 +35,14 @@ export default {
       }
     }
     return {
-      decks: computed(() => AppState.decks)
+      decks: computed(() => AppState.decks),
+
+      async deleteDeck(deckId) {
+        await deckService.deleteDeck(deckId)
+      }
+
+
+
     };
   },
   components: { DeckComponent }
