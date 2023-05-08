@@ -1,10 +1,10 @@
 <template>
-  <div class="col-3 card rounded p-2">
+  <div class=" card rounded p-2">
     <div class="d-flex justify-content-between">
       <h5 class="">{{ cards.name }} </h5>
       <h5 class="text-danger text-end  "><span class="text-dark">HP:</span> {{ cards.health }}</h5>
     </div>
-    <img :src="cards.picture" alt="">
+    <img class="img-fill" :src="cards.picture" alt="">
     <p>Strength: {{ cards.strength }}</p>
     <p>Defense: {{ cards.defense }}</p>
     <p>Magic: {{ cards.magic }}</p>
@@ -36,4 +36,8 @@ export default {
 </script>
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.img-fill {
+  object-fit: cover;
+}
+</style>

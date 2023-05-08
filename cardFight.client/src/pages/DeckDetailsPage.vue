@@ -17,7 +17,7 @@
     </section>
 
     <section class="row">
-      <div class="col-12" v-for="c in cards" v-if="cards"> 0">
+      <div class="d-flex col-3" v-for="c in cards" v-if="cards">
         <CardComponent :cards="c" />
       </div>
     </section>
@@ -58,7 +58,6 @@ export default {
 
     async function getDeckCards() {
       try {
-        debugger
         await cardsService.getCards()
       } catch (error) {
         logger.error(error)

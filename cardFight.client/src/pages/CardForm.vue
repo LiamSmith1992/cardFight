@@ -70,12 +70,16 @@ export default {
     return {
       editable,
       async createCard() {
-        debugger
         try {
           editable.value.deckId = route.params.deckId
           await cardsService.createCard(editable.value)
+
+
           logger.log(editable.value)
+
+
           editable.value = {}
+
 
         } catch (error) {
           logger.error(error.message)
