@@ -12,6 +12,9 @@
       <option value="ninja">Ninja</option>
       <option value="undead">Undead</option>
       <option value="beast">Beast</option>
+      <option value="cyborg">Cyborg</option>
+      <option value="witch">Witch</option>
+
     </select><br>
 
     <label for="health">Health:</label>
@@ -31,15 +34,30 @@
     <select v-model="editable.ability" id="mySelect" name="mySelect">
       <option value="none">None</option>
       <option value="peirce">Peirce</option>
+      <!-- Knight, Ninja -->
       <option value="heal">Heal</option>
+      <!-- Mage, Gohst -->
       <option value="boost">Boost</option>
+      <!-- Mage -->
       <option value="combust">Combust</option>
+      <!-- Mage, Cyborg -->
       <option value="debuff">Debuff</option>
+      <!-- Undead, Mage -->
       <option value="charge">Charge</option>
+      <!-- Knight, Beast -->
       <option value="sneak">Sneak</option>
+      <!-- Ninja, Beast -->
       <option value="vanish">Vanish</option>
+      <!-- Gohst, ninja -->
       <option value="find">Find</option>
+      <!-- Cyborg, Beast -->
       <option value="summon">Summon</option>
+      <!-- Mage, Ghost -->
+      <option value="poison">Poison</option>
+      <!-- Undead, Ninja, Beast -->
+      <option value="defend">Defend</option>
+      <!-- Knight -->
+
     </select><br>
 
     <label for="" class="form-label">Picture</label>
@@ -88,7 +106,6 @@ export default {
 
       async createCard() {
         try {
-          debugger
           const thisDeck = AppState.activeDeck
           let total = editable.value.health + editable.value.strength + editable.value.defense + editable.value.magic
           thisDeck.points = thisDeck.points - total
