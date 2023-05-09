@@ -1,7 +1,8 @@
 <template>
   <div class="container-fluid">
     <section class="row m-1" v-if="cards">
-      <div v-for="c in cards">
+
+      <div class="col-3" v-for="c in cards">
 
         <CardComponent :cards="c" />
       </div>
