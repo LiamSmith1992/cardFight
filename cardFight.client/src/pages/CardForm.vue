@@ -6,14 +6,14 @@
     <label for="mySelect">Type:</label>
     <select v-model="editable.type" id="mySelect" name="mySelect">
       <option value="human">Human</option>
-      <option value="ghost">Ghost</option>
-      <option value="knight">Knight</option>
-      <option value="mage">Mage</option>
-      <option value="ninja">Ninja</option>
-      <option value="undead">Undead</option>
-      <option value="beast">Beast</option>
-      <option value="cyborg">Cyborg</option>
-      <option value="witch">Witch</option>
+      <option value="ghost">Ghost</option> <!-- heal, vanish, summon, stun-->
+      <option value="knight">Knight</option><!-- pierce, charge, bash, defend -->
+      <option value="mage">Mage</option><!-- heal, find, combust, boost-->
+      <option value="ninja">Ninja</option><!-- pierce, sneak vanish, assassinate -->
+      <option value="undead">Undead</option><!-- de-buff, poison, bash, bite-->
+      <option value="beast">Beast</option><!-- charge, sneak, find, beastMode -->
+      <option value="cyborg">Cyborg</option><!--combust, find, bash, laser-->
+      <option value="witch">Witch</option><!--de-buff, summon, poison, curse -->
 
     </select><br>
 
@@ -34,29 +34,50 @@
     <select v-model="editable.ability" id="mySelect" name="mySelect">
       <option value="none">None</option>
       <option value="peirce">Peirce</option>
-      <!-- Knight, Ninja -->
+      <!-- Knight, Ninja           ignore defense -->
       <option value="heal">Heal</option>
-      <!-- Mage, Gohst -->
-      <option value="boost">Boost</option>
-      <!-- Mage -->
+      <!-- Mage, Ghost                     heal a ally 5pt -->
       <option value="combust">Combust</option>
-      <!-- Mage, Cyborg -->
+      <!-- Witch, Cyborg, mage              does damage equal to half magic to all defenders 1-20 to do 2x card dies-->
       <option value="debuff">Debuff</option>
-      <!-- Undead, Mage -->
+      <!-- Undead, Witch                 lowers stats of select card-->
       <option value="charge">Charge</option>
-      <!-- Knight, Beast -->
+      <!-- Knight, Beast           if two or more cards use charge on turn ignore 2ish defense points-->
       <option value="sneak">Sneak</option>
-      <!-- Ninja, Beast -->
+      <!-- Ninja, Beast            cannot be hit on defensive turn must attack on next turn-->
       <option value="vanish">Vanish</option>
-      <!-- Gohst, ninja -->
+      <!-- Ghost, ninja                  hide from table can be activated on summon-->
       <option value="find">Find</option>
-      <!-- Cyborg, Beast -->
+      <!-- Cyborg, Beast           one in 10 chance to grab card from hiding card cannot attack next turn-->
       <option value="summon">Summon</option>
-      <!-- Mage, Ghost -->
+      <!-- Mage, Ghost               1 in 20 summon a demon to fight with no armor but health and attack is 2x of magic from summoner-->
       <option value="poison">Poison</option>
-      <!-- Undead, Ninja, Beast -->
+      <!-- Undead,  witch           takes health equal to poison every other turn-->
+      <option value="bash">Bash</option>
+      <!-- Knight, Cyborg, undead              extra damage if critical stuns enemy 1 in 10 chance-->
+
+
       <option value="defend">Defend</option>
-      <!-- Knight -->
+      <!-- Knight                  if multiple knights all get +1 armor and cannot be ignored-->
+      <option value="stun">Stun</option>
+      <!-- Gohst               card is frozen for one turn-->
+      <option value="boost">Boost</option>
+      <!-- Mage                    adds points to allies-->
+      <option value="assassinate">Assassinate</option>
+      <!-- ninja                 makes card return to hand-->
+      <option value="bite">Bite</option>
+      <!-- undead                   10% chance to turn card into undead with the same stats as biting undead-->
+      <option value="beastMode">Beast Mode</option>
+      <!-- beast                   1 in ten chance for defense and attack to go up 3 points for one round-->
+      <option value="laser">Laser</option>
+      <!-- cyborg                 1 in 20 chance to one shot kill any enemy or do 2x the damage strength to player if no defenders -->
+      <option value="curse">Curse</option>
+      <!-- witch                1 in 15 chance all stats are set to the lowest stat for two turns -->
+
+
+
+
+
 
     </select><br>
 
@@ -89,7 +110,6 @@ export default {
 
     async function getDeckById() {
       try {
-        debugger
         await deckService.getDeckById(route.params.deckId);
       }
       catch (error) {

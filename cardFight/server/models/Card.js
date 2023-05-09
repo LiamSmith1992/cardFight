@@ -8,7 +8,7 @@ export const CardSchema = new Schema({
   strength: { type: Number, required: true, maximum: 20 },
   defense: { type: Number, required: true, maximum: 20 },
   magic: { type: Number, required: true, maximum: 20 },
-  ability: { type: String, required: true, enum: ['none', 'peirce', 'heal', 'boost', 'combust', 'debuff', 'charge', 'sneak', 'vanish', 'find', 'summon', 'poison', 'defend'] },
+  ability: { type: String, required: true, enum: ['none', 'peirce', 'heal', 'boost', 'combust', 'debuff', 'charge', 'sneak', 'vanish', 'find', 'summon', 'poison', 'defend', 'stun', 'bash', 'assassinate', 'bite', 'beastMode', 'laser', 'curse'] },
   picture: { type: String, required: true, maxLength: 400 },
   deckId: { type: Schema.Types.ObjectId, ref: 'Deck' }
 },
