@@ -4,6 +4,9 @@
     <section class="row">
       <div class="col-12">
         <h1 class="text-center fw-bold text-secondary">{{ deck.name }}</h1>
+        <router-link :to="{ name: 'BattlePage', params: { deckId: deck.id } }">
+          <h3 class=" btn btn-info">Battle!</h3>
+        </router-link>
         <h3 class="text-end">Points Left: <span class="text-danger fw-bold">{{ deck.points }}</span> </h3>
       </div>
     </section>

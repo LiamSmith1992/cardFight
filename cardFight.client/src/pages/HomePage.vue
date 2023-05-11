@@ -22,7 +22,9 @@
           </router-link>
         </div>
         <div class="col-2  ">
-          <h3 class="btn btn-primary ">Rules</h3>
+          <router-link :to="{ name: 'RulesPage' }">
+            <h3 class="btn btn-primary ">Rules</h3>
+          </router-link>
         </div>
       </div>
     </section>
@@ -30,7 +32,7 @@
     <section class=" large-image img-fluid">
       <div class="col-12 text-center image-text">
         <h1 class="fw-bold text-danger">CARD FIGHT</h1>
-        <p>The ultimate deck building game.<br> Challange your friends and play online</p>
+        <p>The ultimate deck building game<br> Challange your friends and play online</p>
       </div>
     </section>
 

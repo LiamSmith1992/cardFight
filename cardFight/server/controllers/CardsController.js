@@ -8,6 +8,7 @@ export class CardsController extends BaseController {
     this.router
       .post('', this.createCard)
       .get('', this.getCards)
+      .get('/:cardId', this.getOneCard)
       .delete('/:cardId', this.deleteCard)
       .put('/:cardId', this.editCard)
   }
@@ -29,6 +30,11 @@ export class CardsController extends BaseController {
     } catch (error) {
       next(error)
     }
+  }
+
+  async getOneCard(req, res, next) {
+    const card = await cardsService.getOneCard(req.params.cardId)
+    return res.send(card)
   }
 
   async deleteCard(req, res, next) {

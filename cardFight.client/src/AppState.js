@@ -18,6 +18,8 @@ export const AppState = reactive({
 
   opposingDeck: null,
 
+  drawCard: null,
+
 
 
 })

@@ -48,9 +48,14 @@ const routes = [
     component: loadPage('DeckDetailsPage')
   },
   {
-    path: '/battlePage/:deckId/:deckId',
+    path: '/battlePage/:deckId',
     name: 'BattlePage',
     component: loadPage('BattlePage')
+  },
+  {
+    path: '/rulesPage',
+    name: 'RulesPage',
+    component: loadPage('RulesPage')
   }
 ]
 
