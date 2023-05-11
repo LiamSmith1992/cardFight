@@ -3,11 +3,11 @@
     <section class="row large-image img-fluid m-0 ">
 
       <img v-if="deck" class="deck-img image-text " :src="deck.picture" alt="">
-      <div>
-        <img @click="setActiveCard(cards[drawIndex].id)" data-bs-toggle="modal" data-bs-target="#viewHand"
-          v-if="drawIndex" class="selectable deck-img image-card" :src="cards[drawIndex].picture" alt="">
 
-      </div>
+      <img @click="getOneCard(cards[drawIndex].id)" data-bs-toggle="modal" data-bs-target="#viewHand" v-if="drawIndex"
+        class="selectable deck-img image-card" :src="cards[drawIndex].picture" alt="">
+
+
 
 
 
@@ -21,7 +21,7 @@
 
 
     <Modal id="viewHand">
-      <!-- <CardComponent /> -->
+      <CardComponent :cards="activeCard" />
     </Modal>
   </div>
 </template>
@@ -72,6 +72,7 @@ export default {
       deck: computed(() => AppState.activeDeck),
       cards: computed(() => AppState.cards.filter(i => i.deckId == route.params.deckId)),
       drawIndex: computed(() => AppState.drawCard),
+      activeCard: computed(() => AppState.activeCard),
 
       async getOneCard(cardId) {
         try {
