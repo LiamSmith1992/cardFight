@@ -46,6 +46,11 @@ const routes = [
     path: '/deckDetailsPage/:deckId',
     name: 'DeckDetailsPage',
     component: loadPage('DeckDetailsPage')
+  },
+  {
+    path: '/battlePage/:deckId/:deckId',
+    name: 'BattlePage',
+    component: loadPage('BattlePage')
   }
 ]
 

@@ -102,7 +102,7 @@
 
 <script>
 import { AppState } from '../AppState';
-import { computed, reactive, onMounted, ref, watchEffect } from 'vue';
+import { computed, reactive, onMounted, ref, } from 'vue';
 import { logger } from "../utils/Logger";
 import { cardsService } from "../services/CardsService"
 import { useRoute, useRouter } from "vue-router";
@@ -134,7 +134,7 @@ export default {
       editable,
 
       deck: computed(() => AppState.activeDeck),
-      type: computed(() => AppState.type),
+
 
       async createCard() {
         try {

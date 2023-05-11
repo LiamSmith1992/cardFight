@@ -18,6 +18,6 @@ export const AppState = reactive({
 
   opposingDeck: null,
 
-  type: null
+
 
 })
