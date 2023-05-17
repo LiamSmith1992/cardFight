@@ -4,7 +4,7 @@
 
       <img v-if="deck" class="deck-img image-text " :src="deck.picture" alt="">
 
-      <img @click="getOneCard(cards[drawIndex].id)" data-bs-toggle="modal" data-bs-target="#viewHand" v-if="drawIndex"
+      <img @click="getOneCard(cards[drawIndex].id)" data-bs-toggle="modal" data-bs-target="#viewHand" v-if="cards"
         class="selectable deck-img image-card" :src="cards[drawIndex].picture" alt="">
 
 
